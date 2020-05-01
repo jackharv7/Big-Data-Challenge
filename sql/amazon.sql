@@ -171,6 +171,34 @@ where vine.review_id = rev.review_id and vine = 'N'
 and (customer_id = 50820654 or customer_id = 37651511 or customer_id = 52870270 or customer_id = 26955164 or customer_id = 50227539) 
 group by customer_id, star_rating;
 
+-- Shoes Vine Top 5 products
+SELECT rev.product_id, COUNT(*)
+FROM vine_table_shoes AS vine, review_id_table AS rev
+WHERE vine.review_id = rev.review_id AND vine = 'Y'
+GROUP BY product_id
+ORDER BY COUNT(*) DESC LIMIT 5;
+
+-- Sports Vine Top 5 products
+SELECT rev.product_id, COUNT(*)
+FROM vine_table_sports AS vine, review_id_table AS rev
+WHERE vine.review_id = rev.review_id AND vine = 'Y'
+GROUP BY product_id
+ORDER BY COUNT(*) DESC LIMIT 5;
+
+-- Shoes Non Vine Top 5 products
+SELECT rev.product_id, COUNT(*)
+FROM vine_table_shoes AS vine, review_id_table AS rev
+WHERE vine.review_id = rev.review_id AND vine = 'N'
+GROUP BY product_id
+ORDER BY COUNT(*) DESC LIMIT 5;
+
+-- Sports Non Vine Top 5 products
+SELECT rev.product_id, COUNT(*)
+FROM vine_table_sports AS vine, review_id_table AS rev
+WHERE vine.review_id = rev.review_id AND vine = 'N'
+GROUP BY product_id
+ORDER BY COUNT(*) DESC LIMIT 5;
+
 -- Vine Top 5 products
 SELECT rev.product_id, COUNT(*)
 FROM vine_table AS vine, review_id_table AS rev
@@ -185,6 +213,36 @@ WHERE vine.review_id = rev.review_id AND vine = 'N'
 GROUP BY product_id
 ORDER BY COUNT(*) DESC LIMIT 5;
 
+-- Shoes Vine Top 5 products star ratings
+SELECT rev.product_id, vine.star_rating, COUNT(*)
+FROM vine_table_shoes AS vine, review_id_table AS rev
+WHERE vine.review_id = rev.review_id AND vine = 'Y'
+AND (rev.product_id = 'B00SM2LSQ8' OR rev.product_id = 'B0018KYMNW' 
+	 OR rev.product_id = 'B0018KYOVW' OR rev.product_id = 'B00LV4D1X2' 
+	 OR rev.product_id = 'B00M42W4XS')
+GROUP BY rev.product_id, vine.star_rating;
+--Top 5 Shoes product names by number of vine user reviews
+SELECT *
+FROM products
+WHERE product_id = 'B00SM2LSQ8' OR product_id = 'B0018KYMNW' 
+     OR product_id = 'B0018KYOVW' OR product_id = 'B00LV4D1X2'  
+	 OR product_id = 'B00M42W4XS';
+	 
+-- Sports Vine Top 5 products star ratings
+SELECT rev.product_id, vine.star_rating, COUNT(*)
+FROM vine_table_sports AS vine, review_id_table AS rev
+WHERE vine.review_id = rev.review_id AND vine = 'Y'
+AND (rev.product_id = 'B0089YI8AI' OR rev.product_id = 'B00AU6J68Q' 
+	 OR rev.product_id = 'B003JK002Q' OR rev.product_id = 'B0066Q4GSO' 
+	 OR rev.product_id = 'B00J4GHLFI')
+GROUP BY rev.product_id, vine.star_rating;
+--Top 5 Sports product names by number of vine user reviews
+SELECT *
+FROM products
+WHERE product_id = 'B0089YI8AI' OR product_id = 'B00AU6J68Q' 
+     OR product_id = 'B003JK002Q' OR product_id = 'B0066Q4GSO'  
+	 OR product_id = 'B00J4GHLFI';
+	 
 -- Vine Top 5 products star ratings
 SELECT rev.product_id, vine.star_rating, COUNT(*)
 FROM vine_table AS vine, review_id_table AS rev
@@ -192,14 +250,43 @@ WHERE vine.review_id = rev.review_id AND vine = 'Y'
 AND (rev.product_id = 'B0089YI8AI' OR rev.product_id = 'B00AU6J68Q' 
 	 OR rev.product_id = 'B003JK002Q' OR rev.product_id = 'B0066Q4GSO' 
 	 OR rev.product_id = 'B00J4GHLFI')
-GROUP BY rev.product_id, vine.star_rating;
-
+GROUP BY rev.product_id, vine.star_rating; 
 --Top 5 product names by number of vine user reviews
 SELECT *
 FROM products
 WHERE product_id = 'B0089YI8AI' OR product_id = 'B00AU6J68Q' 
      OR product_id = 'B003JK002Q' OR product_id = 'B0066Q4GSO'  
 	 OR product_id = 'B00J4GHLFI';
+
+-- Shoes Non Vine Top 5 products star ratings
+SELECT rev.product_id, vine.star_rating, COUNT(*)
+FROM vine_table AS vine, review_id_table AS rev
+WHERE vine.review_id = rev.review_id AND vine = 'N'
+AND (rev.product_id = 'B00H9RZDRM' OR rev.product_id = 'B002L9AL84' 
+	 OR rev.product_id = 'B004M6W4FW' OR rev.product_id = 'B004RR0N8Q' 
+	 OR rev.product_id = 'B001UQ71G4')
+GROUP BY rev.product_id, vine.star_rating;
+--Top 5 Shoes product names by number of non vine user reviews
+SELECT *
+FROM products
+WHERE product_id = 'B00H9RZDRM' OR product_id = 'B002L9AL84' 
+     OR product_id = 'B004M6W4FW' OR product_id = 'B004RR0N8Q'  
+	 OR product_id = 'B001UQ71G4';	 
+	 
+-- Sports Non Vine Top 5 products star ratings
+SELECT rev.product_id, vine.star_rating, COUNT(*)
+FROM vine_table AS vine, review_id_table AS rev
+WHERE vine.review_id = rev.review_id AND vine = 'N'
+AND (rev.product_id = 'B001HBHNHE' OR rev.product_id = '7245456313' 
+	 OR rev.product_id = 'B00FX0S4DC' OR rev.product_id = 'B000UVVX28' 
+	 OR rev.product_id = 'B002QZ1RS6')
+GROUP BY rev.product_id, vine.star_rating;
+--Top 5 Sports product names by number of non vine user reviews
+SELECT *
+FROM products
+WHERE product_id = 'B001HBHNHE' OR product_id = '7245456313' 
+     OR product_id = 'B00FX0S4DC' OR product_id = 'B000UVVX28'  
+	 OR product_id = 'B002QZ1RS6';	 
 	 
 -- Non Vine Top 5 products star ratings
 SELECT rev.product_id, vine.star_rating, COUNT(*)
@@ -209,7 +296,6 @@ AND (rev.product_id = 'B001HBHNHE' OR rev.product_id = '7245456313'
 	 OR rev.product_id = 'B00FX0S4DC' OR rev.product_id = 'B000UVVX28' 
 	 OR rev.product_id = 'B002QZ1RS6')
 GROUP BY rev.product_id, vine.star_rating;
-
 --Top 5 product names by number of non vine user reviews
 SELECT *
 FROM products
@@ -224,3 +310,17 @@ FROM vine_table AS vine, review_id_table AS rev
 WHERE vine.review_id = rev.review_id
 GROUP BY product_id
 ORDER BY COUNT(*) DESC LIMIT 5;
+
+select * from vine_table
+where helpful_votes > 400 and vine = 'Y'
+order by helpful_votes desc limit 10;
+
+SELECT * FROM review_id_table
+WHERE review_id = 'R2558BMKF7HK0D';
+
+select * from customers
+where customer_id = 26955164;
+
+select * from vine_table
+where helpful_votes > 400 and vine = 'N'
+order by helpful_votes desc limit 10;
