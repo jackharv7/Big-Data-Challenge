@@ -1,9 +1,9 @@
-# Big Data Amazon AWS
+Big Data Amazon AWS
 
 - The Top 5 customers with the most reviews were Non-Vine Customers, the highest number of reviews for non vine customers was 535
 and the second highest being 298. While the highest number of reviews for a vine customer was 51 reviews.
 
-- In total Vine Customer Reviews is responsible for 0.12% of Amazon reviews and Non Vine Customers account for 99.88% of the
+- In total Vine Customer Reviews is responsible for 0.12% (10,975) of Amazon reviews and Non Vine Customers account for 99.88% (9,205,504) of the
 total Amazon Reviews.
 
 - The percentage of Vine customers vs Non Vine customers with reviews of 4 and 5 stars was 82% for Vine customers and 
@@ -14,3 +14,9 @@ votes being one 4 star review and the rest were 5 star reviews.
 
 - While the percentage of helful votes for Vine customers reviews was 77% for a one star review, 96% for a 4 star review, 84% for a 3 star review,
 and 96% for a 5 star review.
+
+- I do not believe there is bias in the vine reviews becasue the number of 4 and 5 star reviews is not much greater than the number of 4
+and 5 star reviews for Non Vine customers.
+
+- There is not enough evidence to prove that the Vine user's are only giving 4 and 5 star reviews because there is a normal distribution 
+of one,two and three star reviews for both Vine users and Non Vine user's considering the number of each type.
