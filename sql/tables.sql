@@ -27,3 +27,19 @@ CREATE TABLE vine_table (
   total_votes INTEGER,
   vine TEXT
 );
+-- shoes vine table
+CREATE TABLE vine_table_shoes (
+  review_id TEXT PRIMARY KEY,
+  star_rating INTEGER,
+  helpful_votes INTEGER,
+  total_votes INTEGER,
+  vine TEXT
+);
+-- sports vine table
+CREATE TABLE vine_table_sports (
+  review_id TEXT PRIMARY KEY,
+  star_rating INTEGER,
+  helpful_votes INTEGER,
+  total_votes INTEGER,
+  vine TEXT
+);
